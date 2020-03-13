@@ -4,7 +4,8 @@
 
 # Copyright (C) 2014-2015 Nginx, Inc.
 
-import sys, os, signal, base64, ldap, argparse
+import sys, os, signal, base64, ldap, argparse, datetime
+data = datetime.datetime.now()
 if sys.version_info.major == 2:
     from Cookie import BaseCookie
     from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
@@ -338,7 +339,6 @@ if __name__ == '__main__':
     server = AuthHTTPServer(Listen, LDAPAuthHandler)
     signal.signal(signal.SIGINT, exit_handler)
     signal.signal(signal.SIGTERM, exit_handler)
-
-    sys.stdout.write("Start listening on %s:%d...\n" % Listen)
+    sys.stdout.write(str(data) + " " + "Start listening on %s:%d...\n" % Listen)
     sys.stdout.flush()
     server.serve_forever()
