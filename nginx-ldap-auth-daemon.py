@@ -1,4 +1,5 @@
 #!/bin/sh
+# Changed by https://github.com/Iakim
 ''''[ -z $LOG ] && export LOG=/dev/stdout # '''
 ''''which python  >/dev/null && exec python  -u "$0" "$@" >> $LOG 2>&1 # '''
 
