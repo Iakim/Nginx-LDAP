@@ -3,10 +3,16 @@ Nginx configure LDAP connection auth
 
 ### #1: Install pip, pyldap and depedences
 
-      yum install git gcc openldap-devel.x86_64 python-devel libevent-devel python3 python3-pip -y
-      yum clean all
+      yum install python3 python3-pip -y
+      yum install git -y
+      git clone https://github.com/python-ldap/python-ldap.git
+      yum install gcc -y
+      yum clean all 
       yum groupinstall "Development tools" -y
       yum provides */lber.h */ldap.h
+      yum install openldap-devel.x86_64 -y
+      yum install python-devel libevent-devel -y
+
 
 ### #2: Configure iakim-auth.conf
 
