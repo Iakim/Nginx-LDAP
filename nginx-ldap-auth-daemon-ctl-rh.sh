@@ -1,12 +1,15 @@
 #!/bin/sh
 
 CMD=nginx-ldap-auth-daemon.py
+a=`date +%Y`
+b=`date +%m`
+c=`date +%d`
+d=`date +%H:%M:%S.%N`;
 if [ ! -f "$CMD" ]; then
     echo "Please run '$0' from the same directory where '$CMD' file resides"
     exit 1
 fi
-
-CMD=$PWD/$CMD
+data=`date`
 PIDFILE=./nginx-ldap-auth-daemon.pid
 
 . /etc/init.d/functions
@@ -18,7 +21,8 @@ start() {
        echo -n "Already running !" && warning
        echo
     else
-       nohup ${CMD} >/dev/null 2>&1 &
+       # CHANFE HERE: PYTHON VERSION
+       python3 nginx-ldap-auth-daemon.py >> /var/log/nginx/daemon_py.log &
        RETVAL=$?
        PID=$!
        [ $RETVAL -eq 0 ] && success || failure
@@ -30,11 +34,11 @@ start() {
 case $1 in
     "start")
         start
-	python3 nginx-ldap-auth-daemon.py >> /var/log/nginx/daemon_py.log & 
     ;;
     "stop")
         echo -n "Stopping ldap-auth-daemon: "
         killproc -p $PIDFILE $CMD
+	echo "$a-$b-$c $d Stop listening on localhost:8888..." >> /var/log/nginx/daemon_py.log
         echo
     ;;
     *)
