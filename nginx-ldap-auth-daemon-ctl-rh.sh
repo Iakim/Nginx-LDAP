@@ -1,4 +1,5 @@
 #!/bin/sh
+# Changed by https://github.com/Iakim
 
 CMD=nginx-ldap-auth-daemon.py
 a=`date +%Y`
