@@ -1,4 +1,11 @@
 #!/bin/bash
+###################################################################################
+## Nginx-LDAP						   		 ##
+## Script bash for analyze the daemon ldap and the service of nginx		 ##
+## Author: https://github.com/Iakim 				    		 ##
+## Simplicity is the ultimate degree of sophistication		    		 ##
+###################################################################################
+
 
 ngx=`systemctl status nginx | grep running | wc -l`
 dae=`ps aux | grep ldap-auth | wc -l`
