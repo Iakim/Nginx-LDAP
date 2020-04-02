@@ -6,7 +6,6 @@
 ## Simplicity is the ultimate degree of sophistication		    		 ##
 ###################################################################################
 
-
 ngx=`systemctl status nginx | grep running | wc -l`
 dae=`ps aux | grep ldap-auth | wc -l`
 
