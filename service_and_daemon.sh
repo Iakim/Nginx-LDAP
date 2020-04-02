@@ -1,6 +1,6 @@
 #!/bin/bash
 ###################################################################################
-## Nginx-LDAP						   		 ##
+## Nginx-LDAP						   		 	 ##
 ## Script bash for analyze the daemon ldap and the service of nginx		 ##
 ## Author: https://github.com/Iakim 				    		 ##
 ## Simplicity is the ultimate degree of sophistication		    		 ##
