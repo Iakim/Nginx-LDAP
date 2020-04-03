@@ -36,6 +36,8 @@ else
         	        exit 0
 	        fi
 	else
+		cat nginx_result
+		rm -rf nginx_result
 		exit 0
 	fi
 fi
