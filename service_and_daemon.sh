@@ -7,11 +7,11 @@
 ###################################################################################
 
 ngx=`systemctl status nginx | grep running | wc -l`
-dae=`ps aux | grep ldap-auth | wc -l`
+daemon=`ps aux | grep ldap-auth | wc -l`
 
 if [ $ngx -gt 0 ]
 then
-	if [ $dae -lt 2 ]
+	if [ $daemon -lt 2 ]
 	then
 		rm -rf /etc/nginx/conf.d/nginx-ldap-auth-daemon.pid
 		sh /etc/nginx/conf.d/nginx-ldap-auth-daemon-ctl-rh.sh start
@@ -27,7 +27,7 @@ else
 		fuser -k 80/tcp
 		service nginx start 2> /dev/null
 		rm -rf nginx_result
-		if [ $dae -lt 2 ]
+		if [ $daemon -lt 2 ]
         	then
                 	rm -rf /etc/nginx/conf.d/nginx-ldap-auth-daemon.pid
 	                sh /etc/nginx/conf.d/nginx-ldap-auth-daemon-ctl-rh.sh start
