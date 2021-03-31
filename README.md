@@ -20,7 +20,7 @@ Nginx configure LDAP connection auth
 
 ### #3: Start Daemon
 
-If you use python version < 3, change the script of python3 for python only or python{version}.
+If you use python version < 3, change the script of python3 for python only or python{version} in line 26 of nginx-ldap-auth-daemon-ctl-rh.sh script.
 
       ./nginx-ldap-auth-daemon-ctl-rh.sh start
       
